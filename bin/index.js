@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const jscodeshift = require('jscodeshift');
 const transform = require('./transform');
+const { getComponents } = require('./utils');
 
 const filePath = process.argv[2];
 
@@ -13,6 +14,7 @@ if (!filePath) {
 }
 
 const code = fs.readFileSync(path.resolve(filePath), 'utf8');
-const newCode = transform({ source: code }, { jscodeshift });
+// const newCode = transform({ source: code }, { jscodeshift });
 
-fs.writeFileSync(path.resolve(filePath), newCode);
+// fs.writeFileSync(path.resolve(filePath), newCode);
+getComponents(code);
