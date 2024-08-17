@@ -17,14 +17,16 @@ const getComponents = (code) => {
   // 查找所有的React组件
   const components = source.find(j.VariableDeclarator);
 
-  // 打印组件名
+  // 打印组件名，起始行和结束行
   components.forEach(path => {
     if (
       path.node.init &&
       (j.ArrowFunctionExpression.check(path.node.init) ||
         j.FunctionExpression.check(path.node.init))
     ) {
-      console.log(path.node.id.name);
+      console.log(`Component Name: ${path.node.id.name}`);
+      console.log(`Start Line: ${path.node.loc.start.line}`);
+      console.log(`End Line: ${path.node.loc.end.line}`);
     }
   });
 }
