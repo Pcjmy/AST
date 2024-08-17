@@ -14,9 +14,9 @@ const getComponents = (code) => {
   const source = j(code);
 
   const components = [
+    ...source.find(j.ExportDefaultDeclaration).paths(),
     ...source.find(j.VariableDeclarator).paths(),
     ...source.find(j.FunctionDeclaration).paths(),
-    ...source.find(j.ExportDefaultDeclaration).paths(),
     ...source.find(j.FunctionExpression).paths(),
     ...source.find(j.ArrowFunctionExpression).paths(),
   ];
@@ -67,8 +67,8 @@ const getComponents = (code) => {
           endLine = path.node.loc && path.node.loc.end.line;
         } else if (j.FunctionDeclaration.check(path.node)) {
           name = path.node.id.name;
-          startLine = path.node.loc && path.node.loc.start.line;
-          endLine = path.node.loc && path.node.loc.end.line;
+          startLine = path.node.id.loc && path.node.id.loc.start.line;
+          endLine = path.node.id.loc && path.node.id.loc.end.line;
         } else if (j.FunctionExpression.check(path.node) || j.ArrowFunctionExpression.check(path.node)) {
           name = path.parentPath.node.id.name;
           startLine = path.node.loc && path.node.loc.start.line;
@@ -79,7 +79,7 @@ const getComponents = (code) => {
           console.log(`Component Name: ${name}`);
           console.log(`Start Line: ${startLine}`);
           console.log(`End Line: ${endLine}`);
-          // printedComponents.add(name);
+          printedComponents.add(name);
         }
       }
     }
