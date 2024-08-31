@@ -1,10 +1,8 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
-const path = require('path');
-const jscodeshift = require('jscodeshift');
-const transform = require('./transform');
-const { getComponents } = require('./utils');
+import fs from 'fs';
+import path from 'path';
+import { getComponents2 } from './utils.js';
 
 const filePath = process.argv[2];
 
@@ -17,4 +15,4 @@ const code = fs.readFileSync(path.resolve(filePath), 'utf8');
 // const newCode = transform({ source: code }, { jscodeshift });
 
 // fs.writeFileSync(path.resolve(filePath), newCode);
-getComponents(code);
+getComponents2(code);

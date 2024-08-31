@@ -1,7 +1,8 @@
-const j = require('jscodeshift');
-const parser = require('@babel/parser').parse;
+import j from 'jscodeshift';
+import parser from '@babel/parser';
+import { parse } from 'react-docgen';
+
 const plugins = ['jsx', 'typescript']; // 根据需要启用插件
-// const { parse } = require('react-docgen');
 
 j.parser = {
   parse: (source) =>
@@ -11,7 +12,7 @@ j.parser = {
     }),
 };
 
-const getComponents = (code) => {
+export const getComponents = (code) => {
   const source = j(code);
 
   const components = [
@@ -87,14 +88,7 @@ const getComponents = (code) => {
   });
 }
 
-// const getComponents2 = (code) => {
-//   const componentsInfo = parse(code);
-
-//   componentsInfo.forEach(componentInfo => {
-//     console.log(`Component Name: ${componentInfo.displayName}`);
-//     console.log(`Start Line: ${componentInfo.loc.start.line}`);
-//     console.log(`End Line: ${componentInfo.loc.end.line}`);
-//   });
-// }
-
-module.exports = { getComponents }
+export const getComponents2 = (code) => {
+  const componentsInfo = parse(code);
+  console.log(componentsInfo);
+}
