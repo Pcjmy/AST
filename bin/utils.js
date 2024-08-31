@@ -87,3 +87,19 @@ const getComponents = (code) => {
 }
 
 module.exports = { getComponents }
+
+// const reactDocs = require('react-docgen');
+// const fs = require('fs');
+
+// const getComponents = (filePath) => {
+//   const content = fs.readFileSync(filePath, 'utf8');
+//   const componentsInfo = reactDocs.parse(content);
+
+//   componentsInfo.forEach(componentInfo => {
+//     console.log(`Component Name: ${componentInfo.displayName}`);
+//     console.log(`Start Line: ${componentInfo.loc.start.line}`);
+//     console.log(`End Line: ${componentInfo.loc.end.line}`);
+//   });
+// }
+
+// module.exports = { getComponents }
