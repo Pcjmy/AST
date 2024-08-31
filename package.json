@@ -13,6 +13,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "jscodeshift": "^17.0.0"
+    "jscodeshift": "^17.0.0",
+    "react-docgen": "^7.0.3"
   }
 }

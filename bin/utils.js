@@ -1,6 +1,7 @@
 const j = require('jscodeshift');
 const parser = require('@babel/parser').parse;
 const plugins = ['jsx', 'typescript']; // 根据需要启用插件
+// const { parse } = require('react-docgen');
 
 j.parser = {
   parse: (source) =>
@@ -86,14 +87,8 @@ const getComponents = (code) => {
   });
 }
 
-module.exports = { getComponents }
-
-// const reactDocs = require('react-docgen');
-// const fs = require('fs');
-
-// const getComponents = (filePath) => {
-//   const content = fs.readFileSync(filePath, 'utf8');
-//   const componentsInfo = reactDocs.parse(content);
+// const getComponents2 = (code) => {
+//   const componentsInfo = parse(code);
 
 //   componentsInfo.forEach(componentInfo => {
 //     console.log(`Component Name: ${componentInfo.displayName}`);
@@ -102,4 +97,4 @@ module.exports = { getComponents }
 //   });
 // }
 
-// module.exports = { getComponents }
+module.exports = { getComponents }
