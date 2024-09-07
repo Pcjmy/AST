@@ -7,16 +7,17 @@ import path from 'path';
 // import { transformVars } from '../transforms/transformVars2.js';
 // import { transform } from '../transforms/rename.js';
 // import { transform } from '../transforms/transformArrowFunction.js';
-import { transform } from '../transforms/jscodeshift.js';
+// import { transform } from '../transforms/jscodeshift.js';
+import { transform } from '../transforms/getNode.js';
 
-// const filePath = process.argv[2];
+const filePath = process.argv[2];
 
-// if (!filePath) {
-//   console.error('Please provide a file path');
-//   process.exit(1);
-// }
+if (!filePath) {
+  console.error('Please provide a file path');
+  process.exit(1);
+}
 
-// const code = fs.readFileSync(path.resolve(filePath), 'utf8');
+const code = fs.readFileSync(path.resolve(filePath), 'utf8');
 // const newCode = transformVars(code);
 
 // fs.writeFileSync(path.resolve(filePath), newCode);
@@ -24,4 +25,4 @@ import { transform } from '../transforms/jscodeshift.js';
 // const res = transformVars(code);
 // console.log(res);
 
-transform();
+transform(code);
