@@ -5,7 +5,8 @@ import path from 'path';
 // import { getComponents2 } from './utils.js';
 // import { transformVars } from '../transforms/transformVars1.js';
 // import { transformVars } from '../transforms/transformVars2.js';
-import { transform } from '../transforms/rename.js';
+// import { transform } from '../transforms/rename.js';
+import { transform } from '../transforms/transformArrowFunction.js';
 
 // const filePath = process.argv[2];
 
