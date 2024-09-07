@@ -1,6 +1,6 @@
-const j = require('jscodeshift');
+import j from 'jscodeshift';
 
-module.exports = function(file) {
+export const transform = (file) => {
   return j(file.source)
     .find(j.VariableDeclaration, { kind: 'var' })
     .forEach(path => {
