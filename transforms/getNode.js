@@ -37,12 +37,13 @@ const options = {
 };
 
 export const transform = (code) => {
-  const ast = j(code, {
-    parser: {
-      parse: (source) =>
-        parser.parse(source, options),
-    }
-  });
+  // const ast = j(code, {
+  //   parser: {
+  //     parse: (source) =>
+  //       parser.parse(source, options),
+  //   }
+  // });
+  const ast = j.withParser('tsx')(code);
   const nodes = ast.find(j.Program).nodes();
   const arr = nodes[0].body;
   arr.forEach((node) => {
