@@ -3,8 +3,8 @@
 import fs from 'fs';
 import path from 'path';
 import { getComponents2 } from './utils.js';
-import { transform } from './transform.js';
-import { transformVars } from '../transforms/no-vars.js';
+import { transformVars } from '../transforms/transformVars1.js';
+// import { transformVars } from '../transforms/transformVars2.js';
 
 const filePath = process.argv[2];
 
@@ -14,7 +14,7 @@ if (!filePath) {
 }
 
 const code = fs.readFileSync(path.resolve(filePath), 'utf8');
-const newCode = transform(code);
+const newCode = transformVars(code);
 
 fs.writeFileSync(path.resolve(filePath), newCode);
 // getComponents2(code);
