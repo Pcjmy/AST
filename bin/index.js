@@ -14,7 +14,7 @@ if (!filePath) {
 }
 
 const code = fs.readFileSync(path.resolve(filePath), 'utf8');
-const newCode = transform({ source: code });
+const newCode = transform(code);
 
 fs.writeFileSync(path.resolve(filePath), newCode);
 // getComponents2(code);
