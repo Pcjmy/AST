@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 
+interface Props {
+  a: number;
+  b: string;
+}
+
 const a = 1;
 
 const App = () => {
