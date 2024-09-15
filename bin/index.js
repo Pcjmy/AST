@@ -9,7 +9,8 @@ import path from 'path';
 // import { transform } from '../transforms/transformArrowFunction.js';
 // import { transform } from '../transforms/jscodeshift.js';
 // import { transform } from '../transforms/getNode.js';
-import { transform } from '../transforms/deleteConsole.js';
+// import { transform } from '../transforms/deleteConsole.js';
+import { transform } from '../transforms/addTryCatch.js';
 
 // const filePath = process.argv[2];
 
